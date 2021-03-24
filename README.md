@@ -1,7 +1,7 @@
 # Установка
 Ловите парсер, который не только даёт вам IP и PORT [с бесплатного сайта](spys.one/proxies "spys.one"), но еще и проверяет каждый прокси на работуспособность!
 * Открываем терминал/cmd и скачиваем репозиторий:
-```git clone https://github.com/eXTrimeXT/Parser_spys.git``` 
+* ```git clone https://github.com/eXTrimeXT/Parser_spys.git``` 
 * Устанавливаем все требования: 
 * cd Parser_spys
 * python3 -m pip install -r requirements.txt
