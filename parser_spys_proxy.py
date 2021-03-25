@@ -1,3 +1,5 @@
+from exceptions import SiteNotCorrectException
+
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from colorama import init, Fore, Style
@@ -29,7 +31,9 @@ def openUrl():
 	browser.implicitly_wait(10)
 	browser.get("https://spys.one/proxies/")  # переходим на сайт
 	# проверяем наличие того, что мы попали на страницу
-	assert "Бесплатные HTTP, HTTPS, SOCKS прокси сервера, списки обновляемых IP адресов проксей онлайн" in browser.title
+	# assert "Бесплатные HTTP, HTTPS, SOCKS прокси сервера, списки обновляемых IP адресов проксей онлайн" in browser.title
+	if not ("Бесплатные HTTP, HTTPS, SOCKS прокси сервера, списки обновляемых IP адресов проксей онлайн" in browser.title):
+		raise SiteNotCorrectException("заголовок вкладки открывшегося сайта не совпадает с исходным заголовком вкладки сайта")
 	browser.implicitly_wait(10)
 
 
