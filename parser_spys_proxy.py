@@ -27,9 +27,15 @@ list_proxy = []
 def openUrl():
 	print(Fore.YELLOW + "** Открываем сайт **")
 	browser.implicitly_wait(10)
+	browser.implicitly_wait(10)
 	browser.get("https://spys.one/proxies/")  # переходим на сайт
 	# проверяем наличие того, что мы попали на страницу
-	assert "Бесплатные HTTP, HTTPS, SOCKS прокси сервера, списки обновляемых IP адресов проксей онлайн" in browser.title
+	try:
+		assert "Бесплатные HTTP, HTTPS, SOCKS прокси сервера, списки обновляемых IP адресов проксей онлайн" in browser.title
+		assert "No results found." not in browser.page_source  # мы не попали на страницу :(
+	except:
+		print(Fore.RED + "Вы не попали на страницу !" + Fore.YELLOW)
+		exit()
 	browser.implicitly_wait(10)
 
 
@@ -103,5 +109,4 @@ for i in range(3, 5):
 
 
 input("The end. Press key...")  # нужно для окна(NO headless), чтобы оно не закрывалось!
-assert "No results found." not in browser.page_source  # мы не попали на страницу :(
 browser.close()  # закрываем драйвер
